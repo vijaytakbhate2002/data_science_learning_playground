@@ -23,6 +23,9 @@ Each folder contains its own README or documentation where applicable. Feel free
 
 If you have questions or suggestions, feel free to reach out!
 
+- **LinkedIn**: [Vijay Takbhate](https://www.linkedin.com/in/vijay-takbhate-b9231a236/)
+- **Portfolio**: [My Portfolio](http://ec2-52-21-78-219.compute-1.amazonaws.com:5000/)
+
 ## License
 
 This repository is for educational purposes. Please respect individual licenses on any included code or data.
