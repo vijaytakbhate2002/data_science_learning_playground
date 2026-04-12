@@ -4,4 +4,4 @@ env
 *.csv
 *.xlsx
 *.db
-  
+*env
