@@ -31,6 +31,62 @@ In this first chapter, I delved into building a Retrieval-Augmented Generation (
 
 ---
 
+## Chapter 2: Understanding How Embedding Models Work
+
+### Overview
+
+In this chapter, I explored the fundamental mechanics of how embedding models generate vector representations of text. This is a critical component in RAG systems and semantic search.
+
+### Key Concepts Explored
+
+- **Tokenization**: Understanding how sentences are split into tokens and converted to token IDs. Explored subword tokenization techniques like WordPiece and Byte Pair Encoding (BPE) used in models like BERT, where words like "unbelievable" are broken into subword units.
+- **Token to Vector Conversion**: Learning how embedding matrices map token IDs to dense vector representations. Different models have varying embedding dimensions (e.g., BERT uses 768-dimensional embeddings).
+- **Contextual Transformation**: Discovering how Transformer architectures use self-attention mechanisms to update token embeddings based on context, making embeddings context-aware rather than static.
+- **Sentence Embedding Aggregation**: Understanding pooling strategies like mean pooling and max pooling that reduce individual token embeddings into a single sentence-level embedding vector.
+- **Embedding Dimensionality**: Learning how embedding dimensions are model-specific and affect both computational efficiency and representation capability.
+
+### Implementation Highlights
+
+- Explored the step-by-step process from raw text to final embedding vectors.
+- Analyzed the flow: Tokenization → Token Embedding → Contextual Transformation → Sentence Aggregation.
+- Understood the role of embedding matrices as trainable parameters in models.
+- Examined subword tokenization for handling complex words and out-of-vocabulary terms.
+
+### Files
+
+- `2_retrieval_augumented_generation/2_how_embedding_model_works.ipynb`: Jupyter notebook containing detailed explanation of embedding generation.
+
+---
+
+## Chapter 3: Implementing Similarity Search Techniques
+
+### Overview
+
+In this chapter, I delved into the practical implementation of similarity search methods used to find semantically relevant documents. These techniques are essential for the retrieval component in RAG systems.
+
+### Key Concepts Explored
+
+- **Cosine Similarity**: Measuring the angle between two embedding vectors. Focuses on direction rather than magnitude, making it ideal for high-dimensional sparse data. Implemented both using scikit-learn and manual implementation using dot product and vector magnitudes.
+- **Euclidean Distance**: Calculating the straight-line distance between two vectors in embedding space. Suitable for measuring absolute distance and works well in lower-dimensional spaces. Implemented using both manual calculation and Python's `math.dist()` function.
+- **Dot Product**: Direct multiplication of corresponding vector elements. Useful as a similarity metric, especially when vectors are normalized.
+- **SentenceTransformer Integration**: Leveraging the all-MiniLM-L6-v2 model (384-dimensional embeddings) for practical similarity search implementations.
+- **Query and Document Matching**: Implementing practical examples to find which documents are most relevant to a given query by comparing embedding vectors.
+
+### Implementation Highlights
+
+- Created embeddings for sample documents using SentenceTransformer.
+- Implemented cosine similarity calculations both using scikit-learn and from scratch using NumPy.
+- Calculated Euclidean distances to measure absolute separation between embeddings.
+- Computed dot product similarity scores between query and document embeddings.
+- Compared different similarity metrics to understand their use cases and output ranges.
+- Demonstrated querying ("What is the capital of France?") against a document corpus.
+
+### Files
+
+- `2_retrieval_augumented_generation/3_how_similarity_search_works.ipynb`: Jupyter notebook containing practical implementations of different similarity search techniques.
+
+---
+
 ## Future Chapters
 
 [To be added as new explorations are completed]
