@@ -276,3 +276,16 @@ class SimilaritySearch_v1(Scene):
         self.play(Write(final_answer))
         
         self.wait(3)
+
+
+
+
+
+
+
+
+
+
+
+
+

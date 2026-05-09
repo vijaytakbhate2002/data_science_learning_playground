@@ -8,3 +8,5 @@ env
 *.mp4
 *.svg
 *.tex
+*.xml
+*.idea

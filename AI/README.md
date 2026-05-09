@@ -31,7 +31,7 @@ In this first chapter, I delved into building a Retrieval-Augmented Generation (
 
 ---
 
-## Chapter 2: Understanding How Embedding Models Work
+## Chapter 2.1: Understanding How Embedding Models Work
 
 ### Overview
 
@@ -58,7 +58,7 @@ In this chapter, I explored the fundamental mechanics of how embedding models ge
 
 ---
 
-## Chapter 3: Implementing Similarity Search Techniques
+## Chapter 2.2: Implementing Similarity Search Techniques
 
 ### Overview
 
@@ -84,6 +84,67 @@ In this chapter, I delved into the practical implementation of similarity search
 ### Files
 
 - `2_retrieval_augumented_generation/3_how_similarity_search_works.ipynb`: Jupyter notebook containing practical implementations of different similarity search techniques.
+
+---
+
+## Chapter 3.1: Understanding How Transformers Work - Self-Attention Mechanism
+
+### Overview
+
+In this chapter, I explored the core mechanism that powers modern transformers: **self-attention**. This mechanism is fundamental to understanding how transformer models like BERT, GPT, and others process sequential information and capture contextual relationships between tokens.
+
+### Key Concepts Explored
+
+- **Input Embeddings**: Understanding how tokens are converted to dense vector representations. The notebook demonstrates this with a simple example of "The cat sat" with 4-dimensional embeddings.
+- **Query, Key, Value Projections**: Learning how input embeddings are transformed into three different representations:
+  - **Query (Q)**: Represents the current token being processed and what it's "looking for"
+  - **Key (K)**: Represents what each token "contains" or can offer
+  - **Value (V)**: Contains the actual information to be aggregated based on attention weights
+- **Attention Score Computation**: Computing raw attention scores using the dot product between Query and transposed Key matrices (Q · K^T). These scores indicate how much each token should "attend to" other tokens.
+- **Scaling Mechanism**: Dividing attention scores by √(embedding_dimension) (variance stabilizer) to prevent gradient saturation in softmax, which is why it's called "Scaled Dot-Product Attention".
+- **Probability Distribution**: Applying softmax to attention scores to convert them into normalized probability distributions, allowing the model to determine how much weight each position should have.
+- **Weighted Value Aggregation**: Computing the final output by taking a weighted sum of value vectors using the attention probabilities. This produces context-aware embeddings for each token.
+- **Contextual Understanding**: Understanding how attention scores reveal semantic relationships (e.g., diagonal values show self-attention, off-diagonal values show inter-token relationships).
+
+### Implementation Highlights
+
+- Implemented self-attention mechanism from scratch using NumPy, visualizing each step with heatmaps.
+- Started with simple 4-dimensional embeddings for clarity and understanding.
+- Computed Query, Key, and Value matrices through linear transformations with learnable weight matrices.
+- Calculated raw attention scores and visualized their distribution before and after scaling.
+- Applied softmax to obtain normalized attention probabilities.
+- Demonstrated how attention weights influence final token representations by showing weighted value aggregation for each token.
+- Showed practical insights: the diagonal of attention matrices reveals self-attention (each token attending to itself), and off-diagonal values show inter-token relationships (e.g., "cat" and "sat" showing ~25% attention to each other).
+
+### Mathematical Formula
+
+The complete self-attention formula is:
+
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+
+Where:
+
+- Q, K, V are Query, Key, and Value matrices
+- $d_k$ is the embedding dimension (used as the variance stabilizer)
+- The scaling factor prevents attention scores from becoming too extreme
+
+### Why This Matters
+
+Self-attention is the foundational building block of transformer architectures. It enables:
+
+- **Parallel Processing**: All tokens are processed simultaneously (unlike RNNs)
+- **Long-Range Dependencies**: The mechanism can capture relationships between distant tokens
+- **Interpretability**: Attention weights show which parts of the input the model focuses on
+- **Context Awareness**: Each token's representation is updated based on its relationship with all other tokens
+
+### Resources
+
+- **Inspiration**: YouTube video by Andrej Karpathy explaining self-attention in transformers
+  - Link: https://youtu.be/vkhPtpUiLd8?si=IDipB1yL8X2tcnPf
+
+### Files
+
+- `3_understanding_transformer_working/1_self_attention.ipynb`: Jupyter notebook containing step-by-step NumPy implementation of the self-attention mechanism with visualizations.
 
 ---
 
